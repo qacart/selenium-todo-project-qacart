@@ -15,7 +15,9 @@ public class DriverFactory {
         String browser = System.getProperty("browser", "CHROME");
         switch (browser) {
             case "CHROME" -> {
-                driver = new ChromeDriver();
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless");
+                driver = new ChromeDriver(options);
             }
             case "FIREFOX" -> {
                 driver = new FirefoxDriver();
